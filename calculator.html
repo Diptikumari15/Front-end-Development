@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+    <Head>
+        <title>calculator</title>
+    </Head>
+
+    <style>
+
+        body {
+            background-color: black;
+        }
+ 
+        .show-numerals {
+            font-size: 25px;
+            color: white;
+        }
+
+        .number-button,
+        .equal-button {
+            background-color: rgb(64, 63, 63);
+            color:white;
+            padding:12px 16px;
+            border-radius: 100%;
+            border: none;
+            font-size: 15px;
+            margin-right: 3px;
+        }
+
+        .add-button{
+            background-color: orange;
+            color:white;
+            padding:12px 16px;
+            border-radius: 100%;
+            border: none;
+            font-size: 15px;
+        }
+
+        .clear-button{
+            color:white;
+            padding:13px 7px;
+            background-color: rgb(64, 63, 63);
+            border: none;
+            border-radius: 100%;
+            font-size: 10px;
+        }
+
+        .dot-button{
+            background-color: rgb(64, 63, 63);
+            color:white;
+            padding:12px 19px;
+            border-radius: 100%;
+            border: none;
+            font-size: 15px;
+            margin-right: 3px;
+        
+        }
+
+        .substract-button,
+        .multiply-button,
+        .division-button {
+            background-color: orange;
+            color:white;
+            padding:12px 18px;
+            border-radius: 100%;
+            border: none;
+            font-size: 15px;
+        }
+
+
+
+    </style>
+    <body>
+
+
+        <p class="show-numerals"></p>
+
+        <button class="number-button" onclick="
+         console.log(updateCalculation('1'));
+         displayNumerals ();
+            ">1</button>
+
+        <button  class="number-button" onclick="
+         console.log(updateCalculation('2'));
+         displayNumerals ();
+            ">2</button>
+
+        <button class="number-button" onclick="
+         console.log(updateCalculation('3'));
+         displayNumerals ();
+            ">3</button>
+
+        <button class="add-button" onclick="
+        console.log(updateCalculation('+'));
+        displayNumerals ();
+             ">+</button>
+             
+        <p></p>     
+    
+
+        <button class="number-button" onclick="
+        console.log(updateCalculation('4'));
+        displayNumerals ();
+            ">4</button> 
+        
+        <button class="number-button" onclick="
+        console.log(updateCalculation('5'));
+        displayNumerals ();
+            ">5</button>
+
+        <button class="number-button" onclick="
+         console.log(updateCalculation('6'));
+         displayNumerals ();
+            ">6</button>
+
+        <button class="substract-button" onclick="
+        console.log(updateCalculation('-'));
+        displayNumerals ();
+            ">-</button>
+
+        <p></p>    
+
+
+        <button class="number-button" onclick="
+         console.log(updateCalculation('7'));
+         displayNumerals ();
+             ">7</button>
+    
+        <button  class="number-button" onclick="
+        console.log(updateCalculation('8'));
+        displayNumerals ();
+            ">8</button>
+
+        <button class="number-button" onclick="
+        console.log(updateCalculation('9'));
+        displayNumerals ();
+            ">9</button>
+
+        <button class="multiply-button" onclick="
+        console.log(updateCalculation('*'));
+        displayNumerals ();
+            ">*</button>  
+            
+            <p></p>    
+
+        <button class="number-button" onclick="
+        console.log(updateCalculation('0'));
+        displayNumerals ();
+        ">0</button>
+
+        <button class="dot-button" onclick="
+        console.log(updateCalculation('.'));
+        displayNumerals ();
+        ">.</button>
+
+        <button class="equal-button" onclick="
+        calculation = eval(calculation);
+        console.log(calculation);
+        displayNumerals ();
+        localStorage.setItem('calculation',calculation);
+        ">=</button>
+
+        <button class="division-button" onclick="
+        console.log(updateCalculation('/'));
+        displayNumerals ();
+            ">/</button>
+        <p></p>
+
+        <button  class="clear-button" onclick="
+        calculation = '';
+        console.log(calculation);
+        localStorage.setItem('calculation',calculation);
+        displayNumerals ();
+            ">Clear</button>
+                
+           
+    <script>
+
+        let calculation = localStorage.getItem('calculation') || '';
+
+        function updateCalculation (value) {
+            
+            calculation = calculation + value;
+             console.log(calculation) ;
+
+             localStorage.setItem('calculation',calculation)
+        }
+
+
+        function displayNumerals () {
+            document.querySelector('.show-numerals').innerHTML = calculation;  
+              } 
+        
+
+    </script>    
+
+    </body>
+</html>
